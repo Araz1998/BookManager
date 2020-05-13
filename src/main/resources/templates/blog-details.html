@@ -1,0 +1,35 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog Site</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css ">
+</head>
+<body>
+<header th:insert="blocks/header :: header"/>
+
+<div class="container mt-5">
+    <div th:each = "el : ${ord}" class="alert alert-info mt-2">
+        <h1 th:text="${el.firstName} +' ' + ${el.lastName}"/>
+        <p><b>Order:</b>   <span th:text="${el.full_order}"/>
+        <p><b>Country:</b>   <span  th:text="${el.country}"/>
+        <p><b>Adress:</b>   <span th:text="${el.adress}"/>
+        <p><b>Zip:</b>   <span th:text="${el.zip}"/>
+        <br>
+        <br>
+
+        <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn-warning btn-lg">Edit</a>
+        <form th:action="'/blog/'+${el.id}+'/remove'" method="post">
+        <button class="btn-danger btn-lg" type="submit">Delite</button>
+
+
+    </form>
+
+    </div>
+</div>
+
+<div th:insert="blocks/footer.html"/>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="Azeez"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css ">
+</head>
+<body>
+<header th:insert="blocks/header :: header"/>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1>Table of plans</h1>
+
+            <p>
+                <a th:href="'/plan'"  class="btn btn-primary my-2"> To add a new plan</a>
+            </p>
+        </div>
+    </section>
+
+
+    <div class="container mt-5 text-center ">
+        <div class="card-header">
+            <div th:each="plan :${plans}"  class="text-white bg-primary mb-3 col-sm-6 " >
+                <div class="card-header">
+                <h5 th:text="${plan.nameOfPlan}" class="card-title "/>
+                </div>
+                <p th:text="${plan.text}" class="card=text"/>
+                <br>
+                <form th:action="'/'+${plan.id}+'/remove'" method="post">
+                    <button class="btn-danger btn-lg mb-3" type="submit">Delite</button>
+                </form>
+            </div>
+    </div>
+
+
+
+</main>
+
+
+<div th:insert="blocks/footer.html"/>
+
+</body>
+</html>

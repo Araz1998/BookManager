@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Plan-add</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css ">
+</head>
+<body>
+<header th:insert="blocks/header :: header"/>
+
+<div class="container mt-5 mb-5">
+    <form action="/plan" method="post">
+
+            <h1>Plan</h1>
+
+            <input type="text" name="name"  class="form-control" ><br>
+            <textarea  name="planned" placeholder="Enter yours plans" class="form-control" ></textarea><br>
+
+            <button type="submit" class="btn btn-success"> Add plan</button>
+        </form>
+
+
+</div>
+
+<div th:insert="blocks/footer.html"/>
+
+</body>
+</html>
