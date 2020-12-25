@@ -1,0 +1,17 @@
+<th:block xmlns:th="http://www.w3.org/1999/xhtml">
+    <div th:insert="blocks/common :: common"></div>
+
+    <div th:insert="blocks/navbar :: navbar"></div>
+    <div class="container mt-5">
+        <h5>Hello, user</h5>
+        <div>This is simple clone of Instagram</div>
+        <div class="mb-3">
+            <button><a href="/login">Login</a></button>
+        </div>
+        <div>
+            <button><a href="/registration">Registration</a></button>
+        </div>
+    </div>
+
+    <div th:insert="blocks/lower :: lower"></div>
+</th:block>
