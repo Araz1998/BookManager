@@ -13,6 +13,47 @@
     <h1>About us</h1>
 </div>
 
+<div class="form-row">
+    <form method="get" action="/about" class="form-inline">
+        <input type="text" name="filter" class="form-control" th:value="${filter}" placeholder="Search by tag">
+        <button type="submit" class="btn btn-primary ml-2">Search</button>
+    </form>
+</div>
+<a class="btn btn-primary" data-toggle="collapse" href="#inputForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add new message.
+</a>
+<div div class="collapse" id="inputForm">
+    <div class="form-group mt-3">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="messageTextArea"></label>
+                <textarea class="form-control" id="messageTextArea" rows="3" placeholder="Your message."></textarea>
+            </div>
+            <div class="form-group"><input type="text" class="form-control" name="tag" placeholder="Tag"></div>
+            <div class="custom-file">
+                <input type="file" name="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+            <div class="form-group"><button type="submit" class="btn btn-primary ml-2 mt-2">Add</button></div>
+
+        </form>
+    </div>
+</div>
+<br>
+<div class="card-columns" ></div>
+<tr  th:each="messages : ${messages}">
+    <div class="card my-3" style="width: 45rem">
+        <img th:src="@{{image}(image=${(messages.filename != null && !#strings.isEmpty(messages.filename)) ? '/img/' + messages.filename:''})}"
+             class="card-img-top">
+        <div class="m-2">
+            <span th:text="${messages.text}"/>
+            0            <b th:text="'#'+${messages.tag}"/>
+        </div>
+        <div class="card-footer text-muted"th:text="${messages.authorName}"></div>
+    </div>
+</tr>
+</br>    </div>
+
 <div th:insert="blocks/footer.html"/>
 
 </body>

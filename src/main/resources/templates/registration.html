@@ -1,0 +1,20 @@
+<th:block xmlns:th="http://www.w3.org/1999/xhtml">
+    <header th:insert="blocks/header :: header"/>
+    <div class="container mt-5">
+        <h2 class="mt-5 mb-5">Registration</h2>
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+        <div th:if="${message}">
+            <td th:text="${message}">
+        </div>
+        <form th:action="@{/registration}" method="post">
+            <div th:insert="blocks/loginform :: login"></div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+        </form>
+    </div>
+    <div th:insert="blocks/footer.html"/>
+</th:block>
