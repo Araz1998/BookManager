@@ -21,12 +21,12 @@ public class PlanController {
     private PlanRepository planRepository;
 
 
-    @GetMapping("/")
-    public  String planMain(Model model){
-        Iterable<Plan> plan = planRepository.findAll();
-        model.addAttribute("plans", plan);
-        return "home";
-    }
+//    @GetMapping("/")
+//    public  String planMain(Model model){
+//        Iterable<Plan> plan = planRepository.findAll();
+//        model.addAttribute("plans", plan);
+//        return "home";
+//    }
 
     @GetMapping("/plan")
     public String planAdd(Model model){
